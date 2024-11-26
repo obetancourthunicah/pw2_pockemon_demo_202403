@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Phase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout de Repositorio
+        uses: actions/checkout@v4
+
+      - name: Setup Node Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Dependencias
+        run: npm install
+
+      - name: Correr Build Script
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy Artifacts to Github Pages
+        uses: actions/deploy-pages@v4
