@@ -33,7 +33,7 @@ jobs:
       - name: Correr Build Script
         run: npm run build
         env:
-          VITE_BASE: ${{env.VITE_BASE}}
+          VITE_BASE: ${{vars.VITE_BASE}}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
