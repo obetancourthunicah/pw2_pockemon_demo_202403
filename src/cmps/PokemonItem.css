@@ -1,0 +1,3 @@
+.pokemonlistitem{
+    @apply flex flex-row items-center justify-between gap-4 p-4 border-b border-gray-100;
+}

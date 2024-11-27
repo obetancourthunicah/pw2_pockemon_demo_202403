@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import PokemonItem from "./PokemonItem";
 import { useNavigate } from 'react-router-dom';
+
+import './PokemonList.css';
 const PokemonList = ()=>{
     const [pokemonEntries, setPokemonEntries] = useState([]);
     const [next, setNext] = useState(null);
@@ -25,8 +27,8 @@ const PokemonList = ()=>{
         redirect(`detail/${_id}`);
     }
     return (
-        <section>
-            <ul>
+        <section className="w-full bg-gray-200 flex flex-col h-full grow">
+            <ul className='grow'>
                 {
                     pokemonEntries.length>0 &&
                     pokemonEntries.map(
@@ -41,10 +43,10 @@ const PokemonList = ()=>{
                     )
                 }
             </ul>
-            <div>
-                {previous && <button onClick={()=>{setFetchUrl(previous)}}>Anterior</button>}
+            <div className='flex flex-row items-center justify-between p-4'>
+                {previous && <button className='justify-self-start btn' onClick={()=>{setFetchUrl(previous)}}>Anterior</button>}
                 &nbsp;
-                {next && <button onClick={()=>{setFetchUrl(next)}}>Siguiente</button>}
+                {next && <button className='justify-self-end btn' onClick={()=>{setFetchUrl(next)}}>Siguiente</button>}
             </div>
         </section>
     )
