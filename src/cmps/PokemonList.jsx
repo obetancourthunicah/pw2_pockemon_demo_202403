@@ -7,7 +7,7 @@ const PokemonList = ()=>{
     const [pokemonEntries, setPokemonEntries] = useState([]);
     const [next, setNext] = useState(null);
     const [previous, setPrevious] = useState(null);
-    const [fetchUrl, setFetchUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0');
+    const [fetchUrl, setFetchUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0');
     const redirect = useNavigate();
     useEffect(()=>{
         const url = fetchUrl;

@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react';
 import Header from "../cmps/Header";
 import PokemonGeneral from "../cmps/Details/PokemonGeneral";
+import { PokemonStats } from '../cmps/Details/PokemonStats';
 import { useParams, Link } from 'react-router-dom';
 const Detail = (
 ) => {
@@ -21,23 +22,23 @@ const Detail = (
     return (
         <>
             <Header />
-            <section>
+            <section className="p-4 flex flex-col gap-4 h-full grow">
+                <section className='flex flex-col grow h-full'>
 
-                <PokemonGeneral
-                    nombre={pokemonData.name}
-                    imgUrl={pokemonData.sprites.other["official-artwork"].front_default}
-                    types={pokemonData.types}
-                />
+                    <PokemonGeneral
+                        nombre={pokemonData.name}
+                        imgUrl={pokemonData.sprites.other["official-artwork"].front_default}
+                        types={pokemonData.types}
+                    />
 
-                <div className="stats">
-                    <div>HP: <span>100</span></div>
-                    <div>Speed: <span>100</span></div>
-                    <div>Attack: <span>100</span></div>
-                    <div>Defense: <span>100</span></div>
-
-                </div>
+                    <PokemonStats
+                        stats={pokemonData.stats}
+                    />
+                </section>
+                <section className='flex justify-end'>
+                    <Link className='btn' to={'/'}>Ir a Home</Link>
+                </section>
             </section>
-            <Link to={'/'}>Ir a Home </Link>
         </>
     );
 }

@@ -1,3 +1,7 @@
 .pokemonlistitem{
-    @apply flex flex-row items-center justify-between gap-4 p-4 border-b border-gray-100;
+    @apply flex flex-row items-center justify-between gap-4 p-4 border-b border-gray-100 hover:border-gray-300 hover:bg-gray-400;
+}
+
+.pokemonlistitem a {
+    @apply flex justify-center items-center shadow-sm rounded bg-black text-white cursor-pointer py-2 px-4 cursor-pointer;
 }
